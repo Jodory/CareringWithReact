@@ -1,8 +1,12 @@
 import { database } from "../services/firebase";
 // import { setdata } from '../modules/chats';
 
+
+
+
+
 export function sendChat(data,room) {
-  // console.log(data)
+
   return database.ref(`list/${room}`).push({
     message: data.message,
     timestamp: data.timestamp,
@@ -24,7 +28,7 @@ export function signUp2(email, name, password, uid) {
 export const removeChats = (room,key,removeredux) => {
   database.ref(`list/${room}/${key}`).remove();
   removeredux(key);
-  console.log('메롱')
+  console.log('삭제완료')
 };
 
 
